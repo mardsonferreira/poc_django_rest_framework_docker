@@ -56,6 +56,6 @@ class getAllProductsTest(BaseViewTest):
         
         self.login_client('test_user', 'testing')
         
-        response = self.client.get(reverse('products-all'))
+        response = self.client.get(reverse('products'))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data, serialized.data)

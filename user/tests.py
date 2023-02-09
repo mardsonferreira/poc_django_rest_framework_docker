@@ -48,7 +48,7 @@ class BaseViewTest(APITestCase):
             last_name="user",
         )
 
-class AuthLoginUserTest(BaseViewTest):
+class UserTest(BaseViewTest):
     def test_login_user_with_valid_credentials(self):
         response = self.login_a_user("test_user", "testing")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -57,8 +57,6 @@ class AuthLoginUserTest(BaseViewTest):
         response = self.login_a_user("anonymous", "pass")
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
-
-class AuthRegisterUserTest(BaseViewTest):
     def test_register_a_user(self):
         response = self.register_a_user("new_user", "new_pass", "new_user@mail.com")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
@@ -67,3 +65,4 @@ class AuthRegisterUserTest(BaseViewTest):
         
         response = self.register_a_user()
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+    
