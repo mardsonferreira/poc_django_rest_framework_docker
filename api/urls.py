@@ -7,5 +7,6 @@ urlpatterns = [
     path('api-token-auth/', obtain_jwt_token, name='create-token'),
     path('api-token-refresh/', refresh_jwt_token),
     path('users/', include('user.urls')),
-    path('products/', include('product.urls'))
+    path('products/', include('product.urls')),
+    path('carts/', include('cart.urls'))
 ]
